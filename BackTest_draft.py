@@ -626,7 +626,6 @@ def main():
                 ind1 = create_indicator(close_price, indicator1, ind1_dict)
                 ind2 = create_indicator(close_price, indicator2, ind2_dict)
 
-                import pdb; pdb.set_trace()
 
                 # #create other indicator to compare; if selected for entry condition
                 # if entry_comp_type ==  'Other Indicator':
@@ -653,7 +652,7 @@ def main():
                     st.stop()
                 # Ensure exits are boolean
                 exits = exits.astype(bool)
-                import pdb; pdb.set_trace()
+
                 trend = run_entry_exit(entries,exits)
                 pf = run_backtest(close_price,trend)
                 
@@ -667,7 +666,7 @@ def main():
                 with tab1:
                     # Display results
                     st.markdown("**Backtesting Stats:**")
-                    import pdb; pdb.set_trace()
+
                     stats_df = pf.stats().to_frame().rename(columns={'agg_func_mean':'Value'})
                     stats_df.index.name = 'Metric'  # Set the index name to 'Metric' to serve as the header
                     st.dataframe(stats_df, height=800)  # Adjust the height as needed to remove the scrollbar
